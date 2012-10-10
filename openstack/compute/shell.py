@@ -474,13 +474,13 @@ def print_list(objs, fields, formatters={}):
                 row.append(getattr(o, field.lower().replace(' ', '_'), ''))
         pt.add_row(row)
 
-    pt.printt(sortby=fields[0])
+    print pt.get_string(sortby=fields[0])
 
 def print_dict(d):
     pt = prettytable.PrettyTable(['Property', 'Value'], caching=False)
     pt.aligns = ['l', 'l']
     [pt.add_row(list(r)) for r in d.iteritems()]
-    pt.printt(sortby='Property')
+    print pt.get_string(sortby='Property')
 
 def main():
     try:
